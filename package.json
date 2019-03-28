@@ -1,0 +1,18 @@
+{
+  "name": "sequence-utils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Ladd Hoffman <laddhoffman@gmail.com>",
+  "license": "UNLICENSE",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2"
+  },
+  "dependencies": {
+    "debug": "^4.1.1"
+  }
+}
