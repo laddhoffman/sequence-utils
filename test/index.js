@@ -259,11 +259,10 @@ describe('Sequence', () => {
         expect(result[0]).to.eql({
           indexes: {
             A: 1,
-            B: 2,
+            B: 1,
           },
           transposed: {
-            A: 2,
-            B: 1,
+            length: 1,
           }
         });
       });
@@ -274,22 +273,23 @@ describe('Sequence', () => {
         seq1.addInteraction('entity1', 'entity3', 'some other action');
         seq1.addInteraction('entity1', 'entity3', 'another action');
         seq1.addInteraction('entity1', 'entity3', 'some additional action');
+        seq1.addInteraction('entity1', 'entity3', 'who would have thought');
         let seq2 = new Sequence();
         seq2.addInteraction('entity1', 'entity3', 'another action');
         seq2.addInteraction('entity1', 'entity3', 'some additional action');
         seq2.addInteraction('entity1', 'entity2', 'some action');
         seq2.addInteraction('entity1', 'entity3', 'some other action');
-        let result = seq1.compareWith(seq2);
+        seq2.addInteraction('entity1', 'entity3', 'who would have thought');
+        let result = seq1.compareWith(seq2, {maxOffset: 2});
         expect(result).to.be.an('array');
         expect(result.length).to.equal(1);
         expect(result[0]).to.eql({
           indexes: {
-            A: 1,
-            B: 2,
+            A: 0,
+            B: 0,
           },
           transposed: {
-            A: 2,
-            B: 1,
+            length: 2,
           }
         });
       });
