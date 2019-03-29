@@ -1,3 +1,4 @@
+[![NPM](https://nodei.co/npm/sequence-utils.png?compact=true)](https://npmjs.org/package/sequence-utils)
 [![CircleCI](https://circleci.com/gh/laddhoffman/sequence-utils.svg?style=svg)](https://circleci.com/gh/laddhoffman/sequence-utils)
 
 This module provides a `Sequence` class, with methods `addParticipant`,
